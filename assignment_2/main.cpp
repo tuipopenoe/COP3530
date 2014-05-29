@@ -3,17 +3,12 @@
 // main.cpp
 // ©2014
 
-#include "ArrayLinearList.h"
+#include "ArrayList.h"
+
+using namespace std;
 
 int main(){
-    ArrayLinearList<int> arrayLinearList = new ArrayLinearList();
-
-    arrayLinearList.insert(5, 10);
-    arrayLinearList.delete(5);
-    arrayLinearList.print();
-    arrayLinearList.printElement(6);
-    arrayLinearList.printSize();
-    arrayLinearList.quit();
+    //ArrayList<int> arrayList = ArrayList<int>(10);
 
     return 0;
 }

@@ -4,8 +4,9 @@
 // ©2014
 
 
-#include <iostream>
+#include <ostream>
 #include <algorithm>
+#include <iterator>
 #include "ArrayList.h"
 
 using namespace std;
@@ -13,10 +14,8 @@ using namespace std;
 // Constructor
 template<class T> ArrayList<T>::ArrayList(int initialCapacity){
     if(initialCapacity < 1){
-        ostringstream s;
-
-        s << "Initial capacity = " << initialCapacity << " Must be > 0" ;
-        throw illegalParameterValue(s.str());
+        cout << "Initial capacity = " << initialCapacity << " Must be > 0" ;
+        // TODO: throw IllegalParameterValue;
     }
 
     arrayLength = initialCapacity;
@@ -32,13 +31,17 @@ template<class T> ArrayList<T>::ArrayList(const ArrayList<T>& theList){
     copy(theList.element, theList.element + listSize, element);
 }
 
+// Destructor
+template<class T> ArrayList<T>::~ArrayList(){
+    delete [] element;
+}
+
 // Check Index
 template<class T> void ArrayList<T>::checkIndex(int theIndex) const {
     // Verify index is between 0 and listSize-1
     if(theIndex < 0 || theIndex >= listSize){
-        ostringstream s;
-        s << "index = " << theIndex << "size = " << listSize;
-        throw illegalIndex(s.str());
+        cout << "index = " << theIndex << "size = " << listSize;
+        // TODO: throw illegalIndex();
     }
 }
 
@@ -94,7 +97,7 @@ template<class T> void ArrayList<T>::insert(int theIndex, const T& theElement){
     copy_backward(element + theIndex, element + listSize,
         element + listSize +1);
 
-    element[theIndex] theElement;
+    element[theIndex] = theElement;
 
     listSize++;
 }
@@ -103,4 +106,8 @@ template<class T> void ArrayList<T>::insert(int theIndex, const T& theElement){
 template<class T> void ArrayList<T>::output(ostream& out) const{
     // put the list into the stream out
     copy(element, element + listSize, ostream_iterator<T>(cout, " "));
+}
+
+template<class T> int ArrayList<T>::capacity() const{
+    return arrayLength;
 }
