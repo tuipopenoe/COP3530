@@ -1,6 +1,6 @@
 // Tui Popenoe
 // COP 3530 Project 2
-// ArrayLinearList.cpp
+// ArrayList.cpp
 // ©2014
 
 

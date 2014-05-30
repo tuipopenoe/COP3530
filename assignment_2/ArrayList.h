@@ -1,6 +1,6 @@
 // Tui Popenoe
 // COP 3530 Project 2
-// ArrayLinearList.h
+// ArrayList.h
 // ©2014
 
 #ifndef ARRAYLIST_H
